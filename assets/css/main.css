@@ -711,21 +711,35 @@ input, select, textarea {
 				}
 
 /* Footer */
+    #footer {
+        background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
+        background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
+        background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
+        background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
+        bottom: 0;
+        cursor: default;
+        height: 6em;
+        left: 0;
+        /* line-height: 8em;  <-- Diese Zeile war das Hauptproblem, wir entfernen sie */
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        
+        /* Neu hinzugefügt für bessere Zentrierung beider Zeilen: */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
-	#footer {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
-		background-image: linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,0.5) 75%);
-		bottom: 0;
-		cursor: default;
-		height: 6em;
-		left: 0;
-		line-height: 8em;
-		position: absolute;
-		text-align: center;
-		width: 100%;
-	}
+    /* Damit die Abstände der Absätze im Footer nicht zu groß sind */
+    #footer p {
+        margin: 0;
+        font-size: 0.8em; /* Optional: etwas kleiner, damit es dezenter wirkt */
+        line-height: 1.5em;
+    }
+	
+	
 
 /* Wide */
 
@@ -1080,3 +1094,67 @@ input, select, textarea {
 		#header nav {
 			padding: 0 1em;
 		} }
+		
+		
+/* Modal Styling */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Dunkler Hintergrund */
+    display: none; /* Standardmäßig unsichtbar */
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Wird aktiviert, wenn die ID in der URL steht (z.B. #impressum) */
+.modal:target {
+    display: flex;
+}
+
+.modal-content {
+    background: #fff;
+    color: #333;
+    padding: 2em;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    text-align: left;
+    line-height: 1.5em;
+}
+
+.modal-content h2 {
+    color: #000;
+    margin-bottom: 1em;
+    font-weight: 900;
+}
+
+.modal-content .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    text-decoration: none;
+    color: #333;
+    border: none;
+}
+/* Ergänzung für das Modal-Styling */
+.modal-content {
+    max-height: 80vh; /* Maximal 80% der Bildschirmhöhe */
+    overflow-y: auto; /* Scrollbar erscheint, wenn nötig */
+}
+
+.modal-body {
+    text-align: left;
+    font-size: 0.9em;
+}
+
+.modal-body h3 {
+    margin: 1.5em 0 0.5em 0;
+    color: #333;
+    font-weight: 800;
+}
